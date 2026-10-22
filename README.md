@@ -1,17 +1,8 @@
 # FileSearchManager
 
-An Operating Systems course project developed with C++17 on Ubuntu.
+A multithreaded text file search application for an Operating Systems course.
 
-The project aims to search text files using multiple threads.
-
-## Current Implementation
-
-The current version lists regular `.txt` files directly inside a selected directory.
-
-- Subdirectories are not searched.
-- Only the lowercase `.txt` extension is accepted.
-- Invalid directories and incorrect argument counts produce error messages.
-- File content searching and multithreaded execution are not implemented yet.
+Built with C++17 for Ubuntu.
 
 ## Requirements
 
@@ -20,72 +11,89 @@ The current version lists regular `.txt` files directly inside a selected direct
 
 ## Build
 
-Run the following command from the repository root in Ubuntu:
+Run from the repository root in Ubuntu:
 
-```bash
+~~~bash
 g++ -std=c++17 -Wall -Wextra -Wpedantic -pthread -Iinclude src/main.cpp src/file_scanner.cpp src/search.cpp src/parallel_search.cpp -o filesearch
-```
+~~~
 
-## Run the Current Demo
+## Run
 
-```bash
-./filesearch samples
-```
-
-Expected output; file order may vary:
-
-```text
-samples/a.txt
-samples/b.txt
-samples/c.txt
-Text files found: 3
-```
-
-Error examples:
-
-```bash
-./filesearch __missing_folder__
-./filesearch
-```
-
-Exit codes:
-
-- `0`: Directory scanning completed successfully.
-- `1`: Directory scanning failed.
-- `2`: Incorrect command-line usage.
-
-## Planned Search Command
-
-```bash
+~~~bash
+./filesearch DIRECTORY QUERY THREADS
 ./filesearch samples memory 2
-```
+./filesearch samples "shared memory" 2
+~~~
 
-This command is the target interface and is not supported by the current demo.
+THREADS must be an integer between 1 and 8.
 
-The completed program will search for `memory` using two threads. Matching will be case-sensitive and use substring search. Each matching line will be reported once, with its file path and line number.
+The current sample directory contains seven text files. Searching for `memory` produces six matching lines.
+
+Example match:
+
+~~~text
+samples/a.txt:2: memory management
+~~~
+
+Expected summary for the two-thread example:
+
+~~~text
+Files scanned: 7
+Matching lines: 6
+Threads: 2
+~~~
+
+## Search Rules
+
+- Search regular files with the lowercase `.txt` extension.
+- Search only the selected directory; do not enter subdirectories.
+- Use case-sensitive substring matching.
+- Report each matching line once.
+- Number lines starting from 1.
+- Sort matches by file path and line number.
+- Count successfully read files, including empty files and files without matches.
+- Reject empty queries, invalid directories and invalid thread counts.
+
+## Error Examples
+
+~~~bash
+./filesearch __missing_folder__ memory 2
+./filesearch samples memory 0
+./filesearch samples memory 2x
+~~~
+
+## Exit Codes
+
+- `0`: Search completed without reported errors, including zero matches.
+- `1`: Directory scanning or file searching reported an error.
+- `2`: Invalid command-line arguments.
 
 ## Team Responsibilities
 
-| Member | Responsibility | Next deliverable |
-| --- | --- | --- |
-| Berkay | Command-line interface, directory scanning and output | Validate search arguments and display combined results |
-| Zehra | Single-file text searching | Return matching lines, line numbers and file-reading errors |
-| Umut | Parallel search execution | Distribute files across workers, merge results safely and join threads |
+| Member | Responsibility |
+| --- | --- |
+| Berkay | CLI validation, directory scanning, integration and sorted output |
+| Zehra | Reading one file and returning matching lines and errors |
+| Umut | Worker threads, file distribution and synchronized result merging |
 
-## Shared Data Structures
+Shared structures and function declarations are in `include/`.
 
-Defined in `include/types.hpp`:
+Workers collect results locally. A mutex protects merging into the shared result. All workers are joined before returning the final result.
 
-- `Match`: File path, line number and matching text.
-- `FileListResult`: Discovered file paths and directory scanning errors.
-- `SearchResult`: Matches, errors and successfully scanned file count.
+## Verification
 
-## Development
+The integrated program was manually checked with one and two threads. Both runs returned the same six matching lines from seven sample files.
 
-Each member works on a separate branch:
+The invalid thread argument `2x` was rejected.
 
-- `feat/berkay-cli-scanner`
-- `feat/zehra-file-search`
-- `feat/umut-parallel-search`
+Single-file demonstration output is available in `docs/zehra-test-output.txt`.
+
+These checks do not establish a performance improvement.
+
+## Collaboration
+
+Use individual feature branches and pull requests.
+
+After completed tasks, share short Notion notes explaining the change, verification and remaining work.
 
 Compiled executables and build outputs are excluded from Git.
