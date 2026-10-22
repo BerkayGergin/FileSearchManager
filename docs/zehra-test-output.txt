@@ -1,0 +1,25 @@
+
+--- samples/zehra_match.txt ---
+samples/zehra_match.txt:2:memory management
+samples/zehra_match.txt:3:shared memory
+samples/zehra_match.txt:4:memory memory
+Basariyla okunan dosya: 1
+Eslesen satir: 3
+
+--- samples/zehra_no_match.txt ---
+Basariyla okunan dosya: 1
+Eslesen satir: 0
+
+--- samples/zehra_missing.txt ---
+Hata: Dosya acilamadi: samples/zehra_missing.txt
+Basariyla okunan dosya: 0
+Eslesen satir: 0
+
+--- samples/zehra_empty.txt ---
+Basariyla okunan dosya: 1
+Eslesen satir: 0
+
+--- samples/zehra_no_newline.txt ---
+samples/zehra_no_newline.txt:2:memory management
+Basariyla okunan dosya: 1
+Eslesen satir: 1
