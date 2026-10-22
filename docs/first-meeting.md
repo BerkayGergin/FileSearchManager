@@ -1,110 +1,82 @@
-# FileSearchManager — First Project Meeting
+# FileSearchManager - First Project Meeting
 
-## Project Overview
+## Repository
 
-FileSearchManager is a C++17 command-line application for Ubuntu.
+https://github.com/BerkayGergin/FileSearchManager
 
-The completed system will search text files using multiple threads and report matching lines with file paths and line numbers.
+## Project Goal
 
-Repository: https://github.com/BerkayGergin/FileSearchManager
+A C++17 application for Ubuntu that searches text files using multiple threads and reports matching lines with file paths and line numbers.
 
-## Current Working Version
+## Completed Contributions
 
-The current version accepts a directory path and lists its regular `.txt` files.
+| Member | Completed contribution |
+| --- | --- |
+| Berkay | Shared repository and skeleton, directory scanner, CLI validation, module integration, sorted output and documentation |
+| Zehra | Single-file search, line numbering, substring matching, read-error handling, sample cases and a demonstration test program |
+| Umut | Parallel search, file distribution, thread-local results, mutex-protected merging and joining workers |
 
-It does not enter subdirectories. File content searching and parallel execution are not implemented in this version.
+All three modules are integrated into the command-line application.
 
-The shared skeleton contains:
+## Core Structures
 
-- `Match`: File path, line number and matching text.
+Defined in include/types.hpp:
 
-- `FileListResult`: Discovered file paths and scanning errors.
+- Match: file path, line number and matching text.
+- FileListResult: discovered file paths and directory scanning errors.
+- SearchResult: matching lines, errors and successfully scanned file count.
 
-- `SearchResult`: Matches, errors and successfully scanned file count.
+Each module has a separate header and source file.
 
-- Separate headers and source files for directory scanning, file searching and parallel execution.
+## Build
 
-## Completed Work
+Run from the repository root in Ubuntu:
 
-### Berkay
-
-- Initialized and pushed the shared repository.
-
-- Added the shared structures and module declarations.
-
-- Prepared sample text files and build instructions.
-
-- Implemented directory scanning.
-
-- Connected directory scanning to the command-line interface.
-
-- Verified successful scanning, invalid-directory handling and missing-argument handling.
-
-- Merged the working directory-scanning demo into `main`.
-
-### Zehra and Umut
-
-Their completed contributions have not yet been confirmed in this meeting record. This section will be updated after each member demonstrates their work.
-
-## Responsibilities and Next Interim Deliverables
-
-| Member | Owned module | Deliverable by the next interim submission |
-| --- | --- | --- |
-| Berkay | CLI, directory scanner and output | Validate directory, query and thread arguments; integrate the search modules; display sorted results and errors. |
-| Zehra | Single-file search | Read files line by line; return matching lines with 1-based line numbers; handle unreadable, empty and no-match files. |
-| Umut | Parallel search | Distribute files across worker threads; call the single-file search function; combine results using a mutex; join all workers. |
-
-The team will verify that one-thread and two-thread searches produce the same matches.
-
-## Mini Demo
-
-Build from the repository root in Ubuntu:
-
-```bash
-
+~~~bash
 g++ -std=c++17 -Wall -Wextra -Wpedantic -pthread -Iinclude src/main.cpp src/file_scanner.cpp src/search.cpp src/parallel_search.cpp -o filesearch
+~~~
 
-```
+## Working Demo
 
-List the sample files:
+~~~bash
+./filesearch samples memory 1
+./filesearch samples memory 2
+./filesearch samples memory 2x
+~~~
 
-```bash
+Observed results:
 
-./filesearch samples
+- Both valid runs returned the same six matching lines.
+- Seven files were successfully scanned.
+- The invalid thread argument was rejected.
 
-```
+The demo demonstrates directory traversal, file reading, worker threads, synchronized result merging and input validation.
 
-Expected result: three `.txt` file paths and `Text files found: 3`.
+## Search Rules
 
-Demonstrate input errors:
-
-```bash
-
-./filesearch __missing_folder__
-
-./filesearch
-
-```
-
-This PoC demonstrates command-line input, directory traversal and file-path collection.
-
-## Agreed Search Behaviour
-
-- Search only `.txt` files directly inside the selected directory.
-
+- Search regular .txt files directly inside the selected directory.
+- Do not enter subdirectories.
 - Use case-sensitive substring matching.
-
 - Report each matching line once.
+- Sort output by file path and line number.
+- Accept between 1 and 8 threads.
 
-- Reject empty queries and invalid thread counts.
+## Next Interim Deliverables
 
-- Count successfully read files, including files with no matches.
+| Member | Next deliverable |
+| --- | --- |
+| Berkay | Expand CLI and integration checks, document error cases and maintain demo instructions |
+| Zehra | Add automatic result checks and expand query and file-reading test cases |
+| Umut | Compare correctness and elapsed time with 1, 2 and 4 threads on a larger dataset; handle thread-start failures safely |
 
-## Team Learning and Collaboration
+Performance will be measured without assuming that more threads are always faster.
 
-Each member develops on a separate Git branch and shares small, tested changes through pull requests.
+## Collaboration and Learning
 
-After each completed task, the responsible member adds a short Notion note explaining the change, its verification and any remaining issue.
+Members work on individual branches and combine changes through pull requests.
 
-All three members review the complete program and prepare to explain modules written by their teammates.
+After completed tasks, members share short Notion notes describing the change, verification and remaining work.
 
+Every member reviews all modules and prepares to explain the complete program.
+
+The recorded sample checks are initial verification, not exhaustive testing.
