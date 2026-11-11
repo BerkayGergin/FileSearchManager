@@ -1,0 +1,16 @@
+Document title: Requirements
+Category: project_documents
+Document reference: project_documents-008
+
+Summary:
+Requirements define expected features and constraints.
+
+Technical observations:
+Integration testing verifies communication between components.
+The team records completed work in Git commits.
+Performance metrics are included in the progress report.
+The meeting includes a demonstration of working features.
+Open issues are assigned to responsible team members.
+
+Review status: Completed
+Source: FileSearchManager demonstration dataset

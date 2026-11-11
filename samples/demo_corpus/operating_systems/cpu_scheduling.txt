@@ -1,0 +1,16 @@
+Document title: Cpu Scheduling
+Category: operating_systems
+Document reference: operating_systems-002
+
+Summary:
+CPU scheduling distributes processor time among processes.
+
+Technical observations:
+Memory management protects address spaces between processes.
+A mutex prevents simultaneous modification of shared state.
+The kernel controls hardware resources and process execution.
+Page faults may require loading data from secondary storage.
+Threads in the same process can share memory.
+
+Review status: Completed
+Source: FileSearchManager demonstration dataset

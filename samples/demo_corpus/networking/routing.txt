@@ -1,0 +1,16 @@
+Document title: Routing
+Category: networking
+Document reference: networking-005
+
+Summary:
+Routers select paths for packets across networks.
+
+Technical observations:
+Packet loss can reduce application performance.
+Load balancing can improve service availability.
+TLS protects data exchanged over network connections.
+DNS caching reduces repeated name resolution requests.
+TCP connections maintain transport-layer state.
+
+Review status: Completed
+Source: FileSearchManager demonstration dataset

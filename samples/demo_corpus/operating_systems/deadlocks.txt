@@ -1,0 +1,16 @@
+Document title: Deadlocks
+Category: operating_systems
+Document reference: operating_systems-003
+
+Summary:
+A deadlock can occur when processes wait for held resources.
+
+Technical observations:
+Page faults may require loading data from secondary storage.
+Memory management protects address spaces between processes.
+Threads in the same process can share memory.
+The kernel controls hardware resources and process execution.
+Context switching saves and restores execution information.
+
+Review status: Completed
+Source: FileSearchManager demonstration dataset

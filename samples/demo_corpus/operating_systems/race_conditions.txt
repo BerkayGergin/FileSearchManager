@@ -1,0 +1,16 @@
+Document title: Race Conditions
+Category: operating_systems
+Document reference: operating_systems-007
+
+Summary:
+A race condition depends on the timing of concurrent tasks.
+
+Technical observations:
+Page faults may require loading data from secondary storage.
+Synchronization is important for predictable concurrent results.
+A mutex prevents simultaneous modification of shared state.
+Memory management protects address spaces between processes.
+Threads in the same process can share memory.
+
+Review status: Completed
+Source: FileSearchManager demonstration dataset

@@ -1,0 +1,16 @@
+Document title: Ipc
+Category: operating_systems
+Document reference: operating_systems-005
+
+Summary:
+Interprocess communication allows processes to exchange information.
+
+Technical observations:
+Page faults may require loading data from secondary storage.
+The kernel controls hardware resources and process execution.
+Context switching saves and restores execution information.
+Memory management protects address spaces between processes.
+Threads in the same process can share memory.
+
+Review status: Completed
+Source: FileSearchManager demonstration dataset

@@ -1,0 +1,16 @@
+Document title: Analytics
+Category: databases
+Document reference: databases-008
+
+Summary:
+Analytical queries aggregate large amounts of information.
+
+Technical observations:
+Query execution time depends on data size and indexing.
+Transactions support consistent database operations.
+A cache may keep frequently accessed records in memory.
+SQL queries retrieve and modify stored records.
+An index can speed up lookups but increases write overhead.
+
+Review status: Completed
+Source: FileSearchManager demonstration dataset

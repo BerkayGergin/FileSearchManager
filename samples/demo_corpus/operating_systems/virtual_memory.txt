@@ -1,0 +1,16 @@
+Document title: Virtual Memory
+Category: operating_systems
+Document reference: operating_systems-001
+
+Summary:
+Virtual memory maps logical addresses to physical memory.
+
+Technical observations:
+Threads in the same process can share memory.
+A mutex prevents simultaneous modification of shared state.
+Memory management protects address spaces between processes.
+Synchronization is important for predictable concurrent results.
+Page faults may require loading data from secondary storage.
+
+Review status: Completed
+Source: FileSearchManager demonstration dataset

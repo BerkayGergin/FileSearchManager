@@ -1,0 +1,16 @@
+Document title: Replication
+Category: databases
+Document reference: databases-006
+
+Summary:
+Database replication maintains copies across servers.
+
+Technical observations:
+Normalization reduces some forms of data duplication.
+Query execution time depends on data size and indexing.
+SQL queries retrieve and modify stored records.
+Backup verification is part of recovery planning.
+An index can speed up lookups but increases write overhead.
+
+Review status: Completed
+Source: FileSearchManager demonstration dataset
