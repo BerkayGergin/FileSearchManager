@@ -1,0 +1,16 @@
+Document title: Cpp Templates
+Category: programming
+Document reference: programming-006
+
+Summary:
+C++ templates support reusable generic algorithms.
+
+Technical observations:
+Performance profiling identifies expensive operations.
+Error messages should explain why an operation failed.
+Logging makes difficult bugs easier to reproduce.
+Automated tests make regression errors easier to detect.
+Code review helps detect implementation mistakes.
+
+Review status: Completed
+Source: FileSearchManager demonstration dataset

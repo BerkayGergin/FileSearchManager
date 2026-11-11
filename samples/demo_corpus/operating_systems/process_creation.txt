@@ -1,0 +1,16 @@
+Document title: Process Creation
+Category: operating_systems
+Document reference: operating_systems-008
+
+Summary:
+Fork creates a new process with its own execution context.
+
+Technical observations:
+Page faults may require loading data from secondary storage.
+Synchronization is important for predictable concurrent results.
+Threads in the same process can share memory.
+Memory management protects address spaces between processes.
+A mutex prevents simultaneous modification of shared state.
+
+Review status: Completed
+Source: FileSearchManager demonstration dataset

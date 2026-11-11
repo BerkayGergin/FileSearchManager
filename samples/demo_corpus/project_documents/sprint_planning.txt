@@ -1,0 +1,16 @@
+Document title: Sprint Planning
+Category: project_documents
+Document reference: project_documents-001
+
+Summary:
+The team prioritizes tasks for the next development sprint.
+
+Technical observations:
+The meeting includes a demonstration of working features.
+The team records completed work in Git commits.
+Performance metrics are included in the progress report.
+Integration testing verifies communication between components.
+Open issues are assigned to responsible team members.
+
+Review status: Completed
+Source: FileSearchManager demonstration dataset

@@ -1,0 +1,16 @@
+Document title: Firewall Rules
+Category: networking
+Document reference: networking-008
+
+Summary:
+Firewalls filter network traffic using security rules.
+
+Technical observations:
+DNS caching reduces repeated name resolution requests.
+TCP connections maintain transport-layer state.
+Load balancing can improve service availability.
+TLS protects data exchanged over network connections.
+Packet loss can reduce application performance.
+
+Review status: Completed
+Source: FileSearchManager demonstration dataset

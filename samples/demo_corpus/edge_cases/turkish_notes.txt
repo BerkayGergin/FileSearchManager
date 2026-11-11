@@ -1,0 +1,2 @@
+İşletim sistemleri bellek yönetimini sağlar.
+İş parçacıkları eşzamanlı çalışabilir.

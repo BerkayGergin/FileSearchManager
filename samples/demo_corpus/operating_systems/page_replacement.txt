@@ -1,0 +1,16 @@
+Document title: Page Replacement
+Category: operating_systems
+Document reference: operating_systems-004
+
+Summary:
+Page replacement determines which memory page is removed.
+
+Technical observations:
+The kernel controls hardware resources and process execution.
+Context switching saves and restores execution information.
+Threads in the same process can share memory.
+A mutex prevents simultaneous modification of shared state.
+Memory management protects address spaces between processes.
+
+Review status: Completed
+Source: FileSearchManager demonstration dataset
