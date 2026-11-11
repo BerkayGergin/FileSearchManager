@@ -23,3 +23,17 @@ Eslesen satir: 0
 samples/zehra_no_newline.txt:2:memory management
 Basariyla okunan dosya: 1
 Eslesen satir: 1
+
+--- Automated single-file regression tests ---
+
+From the repository root on Ubuntu or WSL:
+
+g++ -std=c++17 -Wall -Wextra -Wpedantic -Iinclude src/search.cpp tests/test_search.cpp -o /tmp/filesearch-test-search
+/tmp/filesearch-test-search
+
+Expected summary: 13/13 search tests passed.
+
+The test program checks match paths, line numbers and full line text, scanned
+file counts, and errors. It exits with a nonzero status if any check fails.
+On Linux, passing a directory directly to search_file exercises the read-error
+path. The CLI's directory scanner only passes regular files to search_file.
